@@ -8,24 +8,19 @@ const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelectorAll(".player__slider");
 
 /* Build out functions*/
+
 function togglePlay() {
-  if (video.paused) {
-    video.play();
-  } else {
-    video.pause();
-  }
+  const method = video.paused ? "play" : "pause";
+  video[method]();
 }
 
 function updateButton() {
-  if (video.paused) {
-    const icon = this.paused ? "►" : "❚ ❚";
-    console.log(icon);
-    toggle.textContent = icon;
-  }
+  const icon = this.paused ? "►" : "❚ ❚";
+  console.log(icon);
+  toggle.textContent = icon;
 }
 
 /* Hook up the event listeners*/
 video.addEventListener("click", togglePlay);
 video.addEventListener("play", updateButton);
 video.addEventListener("pause", updateButton);
-video.addEventListener("click", togglePlay);
